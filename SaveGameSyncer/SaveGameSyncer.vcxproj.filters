@@ -39,9 +39,24 @@
     <ClCompile Include="SaveGameSyncer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SaveGame\SaveGameConfig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\SerializerHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SaveGame\SaveGameSyncerConfig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\CreateSaveGameConfigWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\SerializerHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -49,9 +64,21 @@
     <QtMoc Include="SaveGameSyncer.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="SaveGame\SaveGameConfig.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="SaveGame\SaveGameSyncerConfig.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="GUI\CreateSaveGameConfigWindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="SaveGameSyncer.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="GUI\CreateSaveGameConfigWindow.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
