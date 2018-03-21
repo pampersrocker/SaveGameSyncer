@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+      <ParseFiles>true</ParseFiles>
+    </Filter>
+    <Filter Include="Source Files\quazip%255cquazip">
+      <UniqueIdentifier>{d30063f8-e3e5-4de1-8d96-745e460b321b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="quazip\quazip\jlcompress.cpp">
+      <Filter>Source Files\quazip%255cquazip</Filter>
+    </ClCompile>
+    <ClCompile Include="quazip\quazip\qioapi.cpp">
+      <Filter>Source Files\quazip%255cquazip</Filter>
+    </ClCompile>
+    <ClCompile Include="quazip\quazip\quaadler32.cpp">
+      <Filter>Source Files\quazip%255cquazip</Filter>
+    </ClCompile>
+    <ClCompile Include="quazip\quazip\quacrc32.cpp">
+      <Filter>Source Files\quazip%255cquazip</Filter>
+    </ClCompile>
+    <ClCompile Include="quazip\quazip\quagzipfile.cpp">
+      <Filter>Source Files\quazip%255cquazip</Filter>
+    </ClCompile>
+    <ClCompile Include="quazip\quazip\quaziodevice.cpp">
+      <Filter>Source Files\quazip%255cquazip</Filter>
+    </ClCompile>
+    <ClCompile Include="quazip\quazip\quazip.cpp">
+      <Filter>Source Files\quazip%255cquazip</Filter>
+    </ClCompile>
+    <ClCompile Include="quazip\quazip\quazipdir.cpp">
+      <Filter>Source Files\quazip%255cquazip</Filter>
+    </ClCompile>
+    <ClCompile Include="quazip\quazip\quazipfile.cpp">
+      <Filter>Source Files\quazip%255cquazip</Filter>
+    </ClCompile>
+    <ClCompile Include="quazip\quazip\quazipfileinfo.cpp">
+      <Filter>Source Files\quazip%255cquazip</Filter>
+    </ClCompile>
+    <ClCompile Include="quazip\quazip\quazipnewinfo.cpp">
+      <Filter>Source Files\quazip%255cquazip</Filter>
+    </ClCompile>
+    <ClCompile Include="quazip\quazip\unzip.c">
+      <Filter>Source Files\quazip%255cquazip</Filter>
+    </ClCompile>
+    <ClCompile Include="quazip\quazip\zip.c">
+      <Filter>Source Files\quazip%255cquazip</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
