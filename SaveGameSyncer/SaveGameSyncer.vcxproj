@@ -144,6 +144,7 @@
     <ClCompile Include="Utils\SerializerHelper.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Utils\Win32ProcessList.h" />
     <QtMoc Include="SaveGame\SaveGameSyncerConfig.h">
       <ForceInclude Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdafx.h;../../SaveGame/%(Filename)%(Extension)</ForceInclude>
       <ForceInclude Condition="'$(Configuration)|$(Platform)'=='Release|x64'">stdafx.h;../../SaveGame/%(Filename)%(Extension)</ForceInclude>

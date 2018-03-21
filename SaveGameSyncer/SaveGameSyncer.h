@@ -17,6 +17,7 @@ public slots:
 	void CreateNewSync();
 	void AddSaveGameConfig(SaveGameConfig* Config);
 	void SaveConfig();
+	void UpdateSaveGames();
 
 	QString GetConfigFile();
 
@@ -26,4 +27,6 @@ private:
 	Ui::SaveGameSyncerClass ui;
 
 	SaveGameSyncerConfig* Configuration;
+
+	QTimer* UpdateSaveGamesTimer;
 };

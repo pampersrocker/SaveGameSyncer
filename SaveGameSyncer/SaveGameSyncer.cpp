@@ -9,6 +9,10 @@ SaveGameSyncer::SaveGameSyncer(QWidget *parent)
 	ui.setupUi(this);
 	Configuration = new SaveGameSyncerConfig();
 	LoadConfig();
+
+	UpdateSaveGamesTimer = new QTimer(this);
+	connect(UpdateSaveGamesTimer, SIGNAL(timeout()), this, SLOT(UpdateSaveGames()));
+	UpdateSaveGamesTimer->start(std::chrono::minutes(1));
 }
 
 void SaveGameSyncer::CreateNewSync()
@@ -37,6 +41,11 @@ void SaveGameSyncer::SaveConfig()
 	stream << Configuration;
 
 	file.close();
+}
+
+void SaveGameSyncer::UpdateSaveGames()
+{
+	qDebug() << "Checking for save games changes";
 }
 
 QString SaveGameSyncer::GetConfigFile()
