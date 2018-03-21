@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "SaveGameSyncer.h"
+#include "SaveGameSyncerWindow.h"
 #include <QtWidgets/QApplication>
 
 QFile* LogFile = nullptr;
@@ -24,7 +24,7 @@ void LogMessageHandler(QtMsgType Type, const QMessageLogContext& Context, const 
 		TypeString = "Crit";
 		break;
 	case QtFatalMsg:
-		TypeString = "Fata";
+		TypeString = "Fail";
 		break;
 	case QtInfoMsg:
 		TypeString = "Info";
@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 
 	qDebug() << "####";
 	qDebug() << "Starting application";
-	SaveGameSyncer w;
+	SaveGameSyncerWindow w;
 	w.show();
 	int Result = a.exec();
 

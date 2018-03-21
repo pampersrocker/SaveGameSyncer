@@ -135,15 +135,19 @@
     <ClCompile Include="GUI\CreateSaveGameConfigWindow.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SaveGame\SaveGameConfig.cpp" />
-    <ClCompile Include="SaveGameSyncer.cpp" />
+    <ClCompile Include="SaveGameSyncerWindow.cpp" />
+    <ClCompile Include="SaveGame\SaveGameSyncer.cpp" />
     <ClCompile Include="SaveGame\SaveGameSyncerConfig.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Utils\SerializerHelper.cpp" />
+    <ClCompile Include="Utils\Win32ProcessList.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SaveGame\SavegameSyncer.h" />
+    <ClInclude Include="Utils\ProcessUtil.h" />
     <ClInclude Include="Utils\Win32ProcessList.h" />
     <QtMoc Include="SaveGame\SaveGameSyncerConfig.h">
       <ForceInclude Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdafx.h;../../SaveGame/%(Filename)%(Extension)</ForceInclude>
@@ -158,7 +162,7 @@
       <ForceInclude Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdafx.h;../../SaveGame/%(Filename)%(Extension)</ForceInclude>
       <ForceInclude Condition="'$(Configuration)|$(Platform)'=='Release|x64'">stdafx.h;../../SaveGame/%(Filename)%(Extension)</ForceInclude>
     </QtMoc>
-    <QtMoc Include="SaveGameSyncer.h">
+    <QtMoc Include="SaveGameSyncerWindow.h">
       <ForceInclude Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdafx.h;../../%(Filename)%(Extension)</ForceInclude>
       <ForceInclude Condition="'$(Configuration)|$(Platform)'=='Release|x64'">stdafx.h;../../%(Filename)%(Extension)</ForceInclude>
     </QtMoc>
@@ -168,7 +172,9 @@
     <QtUic Include="GUI\CreateSaveGameConfigWindow.ui">
       <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\ui_%(Filename).h</OutputFile>
     </QtUic>
-    <QtUic Include="SaveGameSyncer.ui" />
+    <QtUic Include="SaveGameSyncerWindow.ui">
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\ui_%(Filename).h</OutputFile>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="SaveGameSyncer.qrc" />

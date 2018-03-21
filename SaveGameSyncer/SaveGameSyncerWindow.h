@@ -1,17 +1,17 @@
 #pragma once
 
 #include <QtWidgets/QMainWindow>
-#include "ui_SaveGameSyncer.h"
+#include "ui_SaveGameSyncerWindow.h"
 
 class SaveGameConfig;
 class SaveGameSyncerConfig;
 
-class SaveGameSyncer : public QMainWindow
+class SaveGameSyncerWindow : public QMainWindow
 {
 	Q_OBJECT
 
 public:
-	SaveGameSyncer(QWidget *parent = Q_NULLPTR);
+	SaveGameSyncerWindow(QWidget *parent = Q_NULLPTR);
 
 public slots:
 	void CreateNewSync();

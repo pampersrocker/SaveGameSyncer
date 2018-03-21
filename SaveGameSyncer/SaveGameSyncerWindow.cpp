@@ -1,9 +1,11 @@
 #include "stdafx.h"
-#include "SaveGameSyncer.h"
+#include "SaveGameSyncerWindow.h"
 #include "CreateSaveGameConfigWindow.h"
 #include "SaveGameSyncerConfig.h"
+#include "Utils/ProcessUtil.h"
+#include "SavegameSyncer.h"
 
-SaveGameSyncer::SaveGameSyncer(QWidget *parent)
+SaveGameSyncerWindow::SaveGameSyncerWindow(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
@@ -15,7 +17,7 @@ SaveGameSyncer::SaveGameSyncer(QWidget *parent)
 	UpdateSaveGamesTimer->start(std::chrono::minutes(1));
 }
 
-void SaveGameSyncer::CreateNewSync()
+void SaveGameSyncerWindow::CreateNewSync()
 {
 	CreateSaveGameConfigWindow* CreateConfigWindow = new CreateSaveGameConfigWindow(this);
 
@@ -25,13 +27,13 @@ void SaveGameSyncer::CreateNewSync()
 	CreateConfigWindow->exec();
 }
 
-void SaveGameSyncer::AddSaveGameConfig(SaveGameConfig* Config)
+void SaveGameSyncerWindow::AddSaveGameConfig(SaveGameConfig* Config)
 {
 	Configuration->Configurations.append(Config);
 	SaveConfig();
 }
 
-void SaveGameSyncer::SaveConfig()
+void SaveGameSyncerWindow::SaveConfig()
 {
 	QFile file = GetConfigFile();
 	file.open(QIODevice::WriteOnly);
@@ -43,12 +45,27 @@ void SaveGameSyncer::SaveConfig()
 	file.close();
 }
 
-void SaveGameSyncer::UpdateSaveGames()
+void SaveGameSyncerWindow::UpdateSaveGames()
 {
 	qDebug() << "Checking for save games changes";
+	QVector<QFileInfo> ProcessList;
+	ProcessUtil::GetRunningProcesses(ProcessList);
+	qDebug() << "Found " << ProcessList.size() << " running processes";
+
+	for (SaveGameConfig* Config : Configuration->Configurations)
+	{
+		QFileInfo ConfigFileInfo(Config->Executable);
+		if (ProcessList.contains(ConfigFileInfo))
+		{
+			qDebug() << "Skipping " << Config->Name << " because it is running";
+			continue;
+		}
+		SaveGameSyncer Syncer;
+		Syncer.PerformSync(Config);
+	}
 }
 
-QString SaveGameSyncer::GetConfigFile()
+QString SaveGameSyncerWindow::GetConfigFile()
 {
 	QDir Path = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
 	if (!Path.exists())
@@ -58,7 +75,7 @@ QString SaveGameSyncer::GetConfigFile()
 	return Path.filePath("config.dat");
 }
 
-void SaveGameSyncer::LoadConfig()
+void SaveGameSyncerWindow::LoadConfig()
 {
 	QFile file = GetConfigFile();
 	if (!file.exists())
