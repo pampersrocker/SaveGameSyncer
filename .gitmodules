@@ -4,3 +4,6 @@
 [submodule "dependencies/quazip"]
 	path = dependencies/quazip
 	url = https://github.com/mnafees/quazip
+[submodule "dependencies/zlib"]
+	path = dependencies/zlib
+	url = https://github.com/madler/zlib
