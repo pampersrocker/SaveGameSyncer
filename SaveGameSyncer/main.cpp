@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "SaveGameSyncerWindow.h"
 #include <QtWidgets/QApplication>
+#include "Cloud/LocalCloudProvider.h"
+#include "Cloud/CloudManager.h"
 
 QFile* LogFile = nullptr;
 
@@ -46,9 +48,13 @@ int main(int argc, char *argv[])
 	LogFile = new QFile(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/log.txt");
 	LogFile->open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);
 	qInstallMessageHandler(LogMessageHandler);
-
 	qDebug() << "####";
 	qDebug() << "Starting application";
+
+	LocalCloudProvider LocalCloud(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/LocalData/");
+	CloudManager::Get().RegisterCloudProvider(&LocalCloud);
+	CloudManager::Get().SetPrimaryCloud(&LocalCloud);
+
 	SaveGameSyncerWindow w;
 	w.show();
 	int Result = a.exec();

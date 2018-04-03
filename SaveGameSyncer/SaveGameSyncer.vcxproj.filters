@@ -57,6 +57,12 @@
     <ClCompile Include="SaveGame\SaveGameSyncer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Cloud\LocalCloudProvider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cloud\CloudManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -72,6 +78,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SaveGame\SavegameSyncer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cloud\ICloudProvider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cloud\LocalCloudProvider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cloud\CloudManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
